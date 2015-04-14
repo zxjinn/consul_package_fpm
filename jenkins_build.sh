@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -x
+rm consul_*-*.deb
 
 source functions.sh
 
@@ -21,8 +22,6 @@ source /usr/local/rvm/environments/$(<.ruby-version)@$(<.ruby-gemset)
 gem install bundler --no-ri --no-rdoc
 set -e # exit if any errors
 bundle install
-
-rm consul_*-*.deb
 
 get_consul
 extract_consul
