@@ -22,6 +22,8 @@ gem install bundler --no-ri --no-rdoc
 set -e # exit if any errors
 bundle install
 
+rm consul_*-*.deb
+
 get_consul
 extract_consul
 build_consul_deb
