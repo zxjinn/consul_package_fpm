@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -x
-rm consul_*-*.deb
+rm -f consul*.{deb,rpm}
 
 source functions.sh
 

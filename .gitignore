@@ -1,3 +1,5 @@
 *.deb
 *.zip
-consul/
+*.rpm
+consul/*
+consul-ui/*
