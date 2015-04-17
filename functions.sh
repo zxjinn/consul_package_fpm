@@ -110,11 +110,11 @@ function build_consul()
 
   ## consul
   if [ -x ${BUILD_CONSUL_BIN_NAME} ]; then
-    fpm -s "dir" -t "${BUILD_PACKAGE_TYPE}" --name "consul" --version "${BUILD_VERSION}" --architecture "x86_64" --maintainer "${BUILD_PACKAGE_MAINTAINER}" --vendor "${BUILD_PACKAGE_VENDOR}" --description "${BUILD_PACKAGE_DESCRIPTION}" --url "${BUILD_PACKAGE_HOMEPAGE}" consul/
+    fpm -s "dir" -t "${BUILD_PACKAGE_TYPE}" --name "consul" --version "${BUILD_VERSION}" --architecture "x86_64" --maintainer "${BUILD_PACKAGE_MAINTAINER}" --vendor "${BUILD_PACKAGE_VENDOR}" --description "${BUILD_PACKAGE_DESCRIPTION}" --url "${BUILD_PACKAGE_HOMEPAGE}" -C consul/ .
   fi
 
   # consul-ui
   if [ -e ${BUILD_CONSUL_UI_DIR}/ui/index.html ]; then
-    fpm -s "dir" -t "${BUILD_PACKAGE_TYPE}" --name "consul-ui" --version "${BUILD_VERSION}" --architecture "all" --maintainer "${BUILD_PACKAGE_MAINTAINER}" --vendor "${BUILD_PACKAGE_VENDOR}" --description "${BUILD_PACKAGE_DESCRIPTION_UI}" --url "${BUILD_PACKAGE_HOMEPAGE}" consul-ui/
+    fpm -s "dir" -t "${BUILD_PACKAGE_TYPE}" --name "consul-ui" --version "${BUILD_VERSION}" --architecture "all" --maintainer "${BUILD_PACKAGE_MAINTAINER}" --vendor "${BUILD_PACKAGE_VENDOR}" --description "${BUILD_PACKAGE_DESCRIPTION_UI}" --url "${BUILD_PACKAGE_HOMEPAGE}" -C consul-ui/ .
   fi
 }
