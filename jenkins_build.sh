@@ -17,8 +17,15 @@ else
   exit 1
 fi
 
-/usr/local/rvm/bin/rvm use $(<.ruby-version)@$(<.ruby-gemset) --create
-source /usr/local/rvm/environments/$(<.ruby-version)@$(<.ruby-gemset)
+/usr/bin/which rvm
+if [ $? -eq 0 ]; then
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+  [[ -s '/etc/profile.d/rvm.sh' ]] && source '/etc/profile.d/rvm.sh'
+
+  rvm use $(<.ruby-version)@$(<.ruby-gemset) --create
+  source ${rvm_path}/environments/$(<.ruby-version)@$(<.ruby-gemset)
+fi
+
 gem install bundler --no-ri --no-rdoc
 set -e # exit if any errors
 bundle install
