@@ -4,7 +4,7 @@ Package Consul and Consul UI with FPM (Linux, x86_64). This only packages releas
 ## Usage
 There are two scripts to assist in the building process [build_deb.sh](build_deb.sh) for Debian/Ubuntu systems and [build_rpm.sh](build_rpm.sh) for RHEL/CentOS systems (untested).
 
-I use this to build new Consul packages with Jenkins `jenkins_build.sh` which only outputs Debian packages and is intended to be run on Debian-based systems with a working RVM installation that has the proper Ruby version installed (see [.ruby-version](.ruby-version)), however pull requests are welcomed.
+I use this to build new Consul packages with Jenkins `jenkins_build.sh` which only outputs Debian packages and is intended to be run on Debian-based systems with Ruby installed. If RVM is installed on the system it will attempt to use the version of Ruby found in [.ruby-version](.ruby-version), so ensure it's installed beforehand. Pull requests are welcomed for any changes.
 
 All build scripts take the following environment variables:
 * `BUILD_NUMBER` The build number of the package. Jenkins sets this automatically. For the default see: [build_number](build_number)
